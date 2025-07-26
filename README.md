@@ -10,8 +10,9 @@ Host a flask app on a linux server on a VM with nginx and https (self signed cer
 
   | Name | Protocol | Host IP | Host Port | Guest IP | Guest Port |
   | ---- | -------- | ------- | --------- | -------- | ---------- |
-  | Rule 1 | TCP |  | 8080 |  | 22 |
-  | Rule 2 | TCP |  | 8443 |  | 443 |
+  | ssh | TCP |  | 8080 |  | 22 |
+  | https | TCP |  | 8443 |  | 443 |
+  | http | TCP |  | 9090 |  | 8000 |
 
   Here we are mapping port 22 of ssh to 8080 of Host machine and port 443 to 8443 for the web server. Note that we are setting larger ports because Host ports lesser than 1024 are not available without root privilege (see [this](https://askubuntu.com/questions/95499/portforwarding-from-host-to-guest-using-port-80-but-it-doesnt-work)) which is not recommended.
 
@@ -23,11 +24,17 @@ user@ubuntu:~$ ssh user@localhost -p 8080
 
 If you successfully log in then close the VM and then restart it in headless mode to open it without the screen. Headless mode can be started by first clicking the small arrow button just besides the start VM button.
 
-5. Set proper permissons for the folders and files. (EXPAND)
+5. Set proper permissons for the folders and files. Check [this](https://www.internalpointers.com/post/right-folder-permission-website) resource for that.
 
-6. Run the `/var/www/project_name/app.py` on the server and fix the issues/fulfill the dependencies. If it runs on Guest port 8080 that we set in step 3, check on host port 9090 whether it is working or not.
+6. Run the `/var/www/project_name/app.py` on the server and fix the issues/fulfill the dependencies. Check if it runs on Guest port 8000 by running-
 
-7. Request an SSL certificate (self signed) for any domain you like using-
+```console
+user@ubuntu:~$ 
+```
+
+ that we set in step 3, check on host port 9090 whether http is working or not.
+
+9. Request an SSL certificate (self signed) for any domain you like using-
 
 ```console
 user@ubuntu:~$ (EXPAND)
