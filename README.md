@@ -97,3 +97,5 @@ user@ubuntu:~$ curl https://localhost --insecure
 `https://example-domain.com:8443`
 
 in the browser search bar. There will be a warning. Skip it by clicking advanced settings and then make an exception for this site. This is because our certificate is self signed. Import the SSL certificate (located at `/etc/ssl/certs/nginx-selfsigned.crt` as done in step 7) in the browser settings to set it as trusted. Open the website again and use it. It should work fine. Also click the lock before the URL and check it. The website should be using https with a valid but untrusted certificate (because it is self signed).
+
+12. You can configure cron tabs for taking backup of important files such as /var/www using the other project that I posted on this [link](https://github.com/Azam31416/backup-cron)
