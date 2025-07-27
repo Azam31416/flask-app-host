@@ -86,7 +86,7 @@ Link this setting to the sites-enabled directory by running-
 ```
 check the configuration by the `nginx -t` command and run `sudo systemctl restart nginx` if needed. See [this](https://www.linode.com/docs/guides/how-to-configure-nginx/) for more info.
 
-11. Check if the website is working in guest by using-
+10. Check if the website is working in guest by using-
 
  ```console
 user@ubuntu:~$ curl https://localhost --insecure
